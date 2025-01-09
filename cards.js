@@ -26,56 +26,67 @@ const cardsData = [
     { type: "מסלול", subType: "עבור משפחה", name: "נחל השופט", location: "גליל", description: "מסלול קל ונגיש.", length: 2 },
     { type: "מסלול", subType: "מתאים לזוגות צעירים", name: "שביל הר עמשא", location: "דרום", description: "מסלול רומנטי עם נופים יפים.", length: 10 }
 ];
-// פונקציה למעבר לעמוד פרטים או הצגת הודעה
-function viewDetails(cardName) {
-    if (cardName === "שביל ישראל") {
-        // מעבר לעמוד "details.html" עם שם המסלול ב-URL
-        window.location.href = `details.html?name=${encodeURIComponent(cardName)}`;
-    } else {
-        // הודעה על פיתוח
-        alert('עמוד זה עדיין בפיתוח. חזור בקרוב!');
-    }
-}
 
 // קריאת פרמטרים מ-URL
 const urlParams = new URLSearchParams(window.location.search);
 const selectedLocation = urlParams.get('location') || 'all';
 const selectedActivities = urlParams.get('activities')?.split(',') || [];
 
+// שליפת הערך של אורך המסלול מהשדה
+let selectedLength = null;
+
 // סינון הכרטיסים
-const filteredCards = cardsData.filter(card => {
-    // התאמת מיקום - חייב להתאים
-    const matchesLocation =
-        selectedLocation === 'all' || card.location.includes(selectedLocation);
+function filterCards() {
+    // עדכון הערך של אורך המסלול
+    selectedLength = document.getElementById('trailLength').value || null;
 
-    // התאמת סוגי הפעילויות - אם לא נבחרה שום פעילות, כל הפעילויות מתאימות
-    const matchesActivity =
-        selectedActivities.length === 0 || selectedActivities.some(activity => card.subType.toLowerCase().includes(activity));
+    const filteredCards = cardsData.filter(card => {
+        // התאמת מיקום
+        const matchesLocation =
+            selectedLocation === 'all' || card.location.includes(selectedLocation);
 
-    // החזרה רק של כרטיסים שממוקמים ומכילים לפחות אחת מהפעילויות או את כולן
-    return matchesLocation && matchesActivity;
-});
+        // התאמת סוגי הפעילויות
+        const matchesActivity =
+            selectedActivities.length === 0 || selectedActivities.some(activity => card.subType.toLowerCase().includes(activity));
 
-// הצגת הכרטיסים
-const cardsContainer = document.getElementById('cardsContainer');
-if (filteredCards.length === 0) {
-    cardsContainer.innerHTML = `<p>לא נמצאו כרטיסים התואמים לחיפוש. נסה לבחור מיקום או סוג פעילות שונה.</p>`;
-} else {
-    filteredCards.forEach(card => {
-        const cardElement = document.createElement('div');
-        cardElement.className = 'card';
-        cardElement.innerHTML = `
-            <h3>${card.name}</h3>
-            <p>סוג: ${card.type} (${card.subType})</p>
-            <p>מיקום: ${card.location}</p>
-            <p>${card.description}</p>
-            ${card.length ? `<p>אורך מסלול: ${card.length} ק"מ</p>` : ''}
-            <button onclick="viewDetails('${card.name}')">פרטים נוספים</button>
-        `;
-        cardsContainer.appendChild(cardElement);
+        // התאמת אורך המסלול (רק אם נבחר ערך)
+        const matchesLength =
+            !selectedLength || (card.length && card.length <= selectedLength);
+
+        // החזרה רק של כרטיסים שממלאים את כל התנאים
+        return matchesLocation && matchesActivity && matchesLength;
     });
+
+    // הצגת הכרטיסים
+    displayCards(filteredCards);
 }
 
-document.getElementById('return').addEventListener('click', () => {
-    window.location.href = 'search.html'; // חזרה לעמוד החיפוש
-});
+// פונקציה להצגת כרטיסים
+function displayCards(cards) {
+    const cardsContainer = document.getElementById('cardsContainer');
+    cardsContainer.innerHTML = ''; // איפוס הכרטיסים הקיימים
+
+    if (cards.length === 0) {
+        cardsContainer.innerHTML = `<p>לא נמצאו כרטיסים התואמים לחיפוש. נסה לבחור מיקום, סוג פעילות, או אורך מסלול שונה.</p>`;
+    } else {
+        cards.forEach(card => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'card';
+            cardElement.innerHTML = `
+                <h3>${card.name}</h3>
+                <p>סוג: ${card.type} (${card.subType})</p>
+                <p>מיקום: ${card.location}</p>
+                <p>${card.description}</p>
+                ${card.length ? `<p>אורך מסלול: ${card.length} ק"מ</p>` : ''}
+                <button onclick="viewDetails('${card.name}')">פרטים נוספים</button>
+            `;
+            cardsContainer.appendChild(cardElement);
+        });
+    }
+}
+
+// מאזין ללחיצה על כפתור "הפעל סינון"
+document.getElementById('applyFilter').addEventListener('click', filterCards);
+
+// הפעלה ראשונית להצגת כרטיסים ללא סינון
+filterCards();

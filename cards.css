@@ -36,3 +36,34 @@ button {
 button:hover {
     background-color: #388e3c;
 }
+
+#filters {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#filters label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#filters input {
+    padding: 8px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#filters button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#filters button:hover {
+    background-color: #388e3c;
+}
