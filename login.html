@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עמוד כניסה</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <h1>עמוד כניסה לאתר HIKE</h1>
+    </header>
+
+    <main>
+        <!-- כפתורי בחירה -->
+        <section id="buttons">
+            <button id="showLogin" class="toggle-btn">כניסה</button>
+            <button id="showRegister" class="toggle-btn">רישום</button>
+        </section>
+
+        <!-- טופס כניסה -->
+        <form id="loginForm" class="hidden">
+            <div class="form-row">
+                <label for="loginUsername">שם משתמש:</label>
+                <input type="text" id="loginUsername" name="loginUsername" placeholder="הכנס שם משתמש" required>
+            </div>
+            <div class="form-row">
+                <label for="loginPassword">סיסמה:</label>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="הכנס סיסמה" required>
+            </div>
+            <button type="submit" class="primary-btn">כניסה</button>
+        </form>
+
+        <!-- טופס רישום -->
+        <form id="registerForm" class="hidden">
+            <div class="form-row">
+                <label for="username">שם משתמש:</label>
+                <input type="text" id="username" name="username" placeholder="הכנס שם משתמש" required>
+            </div>
+            <div class="form-row">
+                <label for="password">סיסמה:</label>
+                <input type="password" id="password" name="password" placeholder="בחר סיסמה" required>
+            </div>
+            <div class="form-row">
+                <label for="confirm-password">אימות סיסמה:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="הכנס שוב את הסיסמה" required>
+            </div>
+            <button type="submit" class="primary-btn">רישום</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2025 אתר הטיולים שלנו | <a href="#">תרום לנו</a></p>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+</html>

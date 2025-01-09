@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חיפוש מסלול</title>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <header>
+        <h1>ברוך הבא, <span id="usernameDisplay"></span>!</h1>
+    </header>
+
+    <main>
+        <section class="location">
+            <h2>בחר מיקום</h2>
+            <label for="locationtext">הכנס מיקום:</label>
+            <input type="text" id="locationtext" name="locationtext" placeholder="לדוגמה: ירושלים">
+            <p>או</p>
+            <label for="location">בחר אזור:</label>
+            <select id="location">
+                <option value="all">הכל</option>
+                <option value="כל הארץ">כל הארץ</option>
+                <option value="ירושלים">ירושלים והסביבה</option>
+                <option value="יוש">יהודה ושומרון</option>
+                <option value="תל אביב">תל אביב והסביבה</option>
+                <option value="אילת">אילת והסביבה</option>
+                <option value="צפון">צפון</option>
+                <option value="גליל">גליל</option>
+                <option value="דרום">דרום</option>
+                <option value="מרכז">מרכז</option>
+                <option value="שפלה">שפלה</option>
+            </select>
+        </section>
+
+        <section id="activity">
+            <h2>בחר סוג פעילות</h2>
+
+            <div class="activity-group">
+                <h3>אטרקציה</h3>
+                <form id="attractionForm">
+                    <label><input type="checkbox" name="choice" value="פארקי אקסטרים"> פארקי אקסטרים</label>
+                    <label><input type="checkbox" name="choice" value="פארקי מים"> פארקי מים</label>
+                    <label><input type="checkbox" name="choice" value="צניחה"> צניחה</label>
+                    <label><input type="checkbox" name="choice" value="קייאקים"> קייאקים</label>
+                    <label><input type="checkbox" name="choice" value="חיות"> חיות</label>
+                    <label><input type="checkbox" name="choice" value="מוזיאונים"> מוזיאונים</label>
+                    <label><input type="checkbox" name="choice" value="מסעדות"> מסעדות</label>
+                    <label><input type="checkbox" name="choice" value="קטיף"> קטיף</label>
+                </form>
+            </div>
+
+            <div class="activity-group">
+                <h3>טיול</h3>
+                <form id="tripForm">
+                    <label><input type="checkbox" name="choice" value="מסלולי שטח"> מסלולי שטח</label>
+                    <label><input type="checkbox" name="choice" value="מסלולי מים"> מסלולי מים</label>
+                    <label><input type="checkbox" name="choice" value="יותר מיום"> יותר מיום</label>
+                    <label><input type="checkbox" name="choice" value="עבור משפחה"> עבור משפחה</label>
+                    <label><input type="checkbox" name="choice" value="מתאים לזוגות צעירים"> מתאים לזוגות צעירים</label>
+                    <label><input type="checkbox" name="choice" value="מתאים לבעלי חיים"> מתאים לבעלי חיים</label>
+                </form>
+            </div>
+
+            <div class="activity-group">
+                <h3>לינה</h3>
+                <form id="sleepForm">
+                    <label><input type="checkbox" name="choice" value="בתי מלון"> בתי מלון</label>
+                    <label><input type="checkbox" name="choice" value="צימרים"> צימרים</label>
+                    <label><input type="checkbox" name="choice" value="לינה בשטח"> לינה בשטח</label>
+                    <label><input type="checkbox" name="choice" value="airbnb"> Airbnb</label>
+                </form>
+            </div>
+        </section>
+
+        <div class="buttons">
+            <button type="submit" class="primary-btn">חפש</button>
+            <button type="button" class="secondary-btn">תרומה</button>
+        </div>
+    </main>
+
+    <script src="search.js"></script>
+</body>
+</html>

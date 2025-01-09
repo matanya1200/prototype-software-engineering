@@ -1,0 +1,94 @@
+/* בסיס */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+}
+
+header h1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+/* מיקום */
+.location {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.location label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.location select, .location input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* פעילויות */
+.activity-group {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    text-align: right;
+}
+
+.activity-group h3 {
+    font-size: 20px;
+    color: #4CAF50;
+}
+
+.activity-group label {
+    display: block;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* כפתורים */
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #45a049;
+}
+
+.secondary-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #e53935;
+}

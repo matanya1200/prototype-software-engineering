@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>כרטיסים</title>
+    <link rel="stylesheet" href="cards.css">
+</head>
+<body>
+    <header>
+        <h1>תוצאות חיפוש</h1>
+    </header>
+
+    <main>
+        <div id="filters">
+            <label for="trailLength">סינון לפי אורך מסלול (בק"מ):</label>
+            <input type="number" id="trailLength" placeholder="לדוגמה: 5">
+            <button id="applyFilter">הפעל סינון</button>
+        </div>
+
+        <section id="cardsContainer">
+            <!-- כרטיסים יתווספו כאן -->
+        </section>
+    </main>
+
+
+    <footer>
+        <button id="return" >חזרה</button>
+    </footer>
+
+    <script src="cards.js"></script>
+</body>
+</html>
