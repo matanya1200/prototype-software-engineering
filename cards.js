@@ -32,6 +32,20 @@ const urlParams = new URLSearchParams(window.location.search);
 const selectedLocation = urlParams.get('location') || 'all';
 const selectedActivities = urlParams.get('activities')?.split(',') || [];
 
+function viewDetails(cardName) {
+    if (cardName === "שביל ישראל") {
+        // מעבר לעמוד "details.html" עם שם המסלול ב-URL
+        window.location.href = `details.html?name=${encodeURIComponent(cardName)}`;
+    } else if (cardName === "מלון המלך שלמה") {
+        // מעבר לעמוד "kingSolomon.html"
+        window.location.href = `kingSolomon.html`;
+    } else {
+        // הודעה על פיתוח
+        alert('עמוד זה עדיין בפיתוח. חזור בקרוב!');
+    }
+}
+
+
 // שליפת הערך של אורך המסלול מהשדה
 let selectedLength = null;
 
