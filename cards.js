@@ -102,5 +102,9 @@ function displayCards(cards) {
 // מאזין ללחיצה על כפתור "הפעל סינון"
 document.getElementById('applyFilter').addEventListener('click', filterCards);
 
+document.getElementById('return').addEventListener('click', () => {
+    window.location.href = 'search.html'; // חזרה לעמוד החיפוש
+});
+
 // הפעלה ראשונית להצגת כרטיסים ללא סינון
 filterCards();
